@@ -22,6 +22,7 @@ class ContactHeaders
         $customHeader = 'X-Contact-Header';
         $customValue = config('app.contact_header');
         if ($request->header($customHeader) !== $customValue) {
+           dd('Unauthorized access with header:', $request->header($customHeader));
             return response()->json(['message' => 'Unauthorized'], 401);
         }
         return $next($request);

@@ -45,7 +45,44 @@ public function apitestimonials(){
         'status'=>'200',
         'testimonials'=>$testimonials
      ]);
-
 }
+
+
+public function contacts(Request $request){
+    $validator=Validator::make($request->all(),[
+        'name'=>'required',
+        'company_name'=>'required',
+        'email'=>'required|email',
+        'phone'=>'required',
+        'message'=>'required',
+
+    ]);
+    if($validator->fails()){
+        return response()->json([
+            'status'=>'422',
+            'error'=>$validator->errors()
+        ]);
+    }
+    else
+    {
+        $contactForm = [
+            'name' => $request->name,
+            'phone' =>  $request->phone,
+            'company_name' =>  $request->company_name,
+            'email' => $request->email,
+            'message' =>  $request->message,
+
+        ];
+        $message = 'Name : '.$request->name. '<br>Email : '.$request->email. '<br>Phone : '.$request->phone. '<br>Message : '.$request->message;
+        Mail::to('jo@gmail.com')->send(new Contact($message));
+
+     return response()->json([
+        'status'=>'200',
+        'msg'=>'We will Get Back To You Soon.'
+     ]);
+    }
+
+   }
+
 
 }

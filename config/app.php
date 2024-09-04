@@ -27,7 +27,7 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
-    'contact_header' => env('X_CONTACT_HEADER','123abc@~'),
+    'contact_header' => env('X_CONTACT_HEADER',''),
 
 
     /*
