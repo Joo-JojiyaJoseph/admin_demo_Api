@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\contact;
 use App\Models\Admin\Logo;
 use App\Models\Admin\Testimonial;
+use App\Models\Gallery;
 
 class ViewController extends Controller
 {
@@ -44,6 +45,15 @@ public function apitestimonials(){
     return response()->json([
         'status'=>'200',
         'testimonials'=>$testimonials
+     ]);
+}
+
+
+public function gallery(){
+    $gallerys=Gallery::all();
+    return response()->json([
+        'status'=>'200',
+        'gallerys'=>$gallerys
      ]);
 }
 

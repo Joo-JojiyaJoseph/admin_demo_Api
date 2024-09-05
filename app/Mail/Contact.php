@@ -24,7 +24,7 @@ class Contact extends Mailable
     public function build()
     {
         return $this->subject($this->subject)
-        ->markdown('emails.contact', ['message' => $this->message])->attach($this->attachment);
+        ->markdown('emails.contact', ['message' => $this->message]);
     }
 
 }

@@ -24,6 +24,7 @@ Route::middleware(['contact.headers'])->group(function () {
     Route::get('/slider',[ViewController::class,'sliders']);
     Route::get('/logo',[ViewController::class,'logo']);
     Route::get('/seo',[ViewController::class,'seo']);
+    Route::get('/gallery',[ViewController::class,'gallery']);
     Route::post('/contact',[ViewController::class,'contacts']);
 
 });
