@@ -1,10 +1,7 @@
 @component('mail::message')
+# New Contact
 
 {!! $message !!}
-
-{{-- @component('mail::button', ['url' => ''])
-Button Text
-@endcomponent --}}
 
 Thanks,<br>
 {{ config('app.name') }}

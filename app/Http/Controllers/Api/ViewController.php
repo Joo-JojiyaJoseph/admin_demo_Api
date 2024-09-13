@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\contact;
+use App\Mail\Contacts;
 use App\Models\Admin\Logo;
 use App\Models\Admin\Testimonial;
 use App\Models\Gallery;
@@ -61,7 +62,6 @@ public function gallery(){
 public function contacts(Request $request){
     $validator=Validator::make($request->all(),[
         'name'=>'required',
-        'company_name'=>'required',
         'email'=>'required|email',
         'phone'=>'required',
         'message'=>'required',
@@ -75,16 +75,17 @@ public function contacts(Request $request){
     }
     else
     {
-        $contactForm = [
-            'name' => $request->name,
-            'phone' =>  $request->phone,
-            'company_name' =>  $request->company_name,
-            'email' => $request->email,
-            'message' =>  $request->message,
+        // $contactForm = [
+        //     'name' => $request->name,
+        //     'phone' =>  $request->phone,
+        //     'email' => $request->email,
+        //     'message' =>  $request->message,
 
-        ];
+        // ];
         $message = 'Name : '.$request->name. '<br>Email : '.$request->email. '<br>Phone : '.$request->phone. '<br>Message : '.$request->message;
-        Mail::to('jo@gmail.com')->send(new Contact($message));
+
+        Mail::to('jo@gmail.com')->send(new Contacts($message));
+
 
      return response()->json([
         'status'=>'200',
