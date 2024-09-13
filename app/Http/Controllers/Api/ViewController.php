@@ -55,7 +55,7 @@ class ViewController extends Controller
              ]);
    }
 
-   public function base()
+   public function baseimageurl()
    {
     return response()->json([
                 'status'=>'200',

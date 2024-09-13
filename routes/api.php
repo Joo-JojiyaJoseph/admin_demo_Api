@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::middleware(['contact.headers'])->group(function () {
     Route::get('/slider',[ViewController::class,'sliders']);
-    Route::get('/base',[ViewController::class,'base']);
+    Route::get('/baseimageurl',[ViewController::class,'baseimageurl']);
     Route::get('/logo',[ViewController::class,'logo']);
     Route::get('/seo',[ViewController::class,'seo']);
     Route::get('/gallery',[ViewController::class,'gallery']);
