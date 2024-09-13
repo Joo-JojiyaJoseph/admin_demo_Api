@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\contact;
-use App\Mail\Contacts;
 use App\Models\Admin\Logo;
 use App\Models\Admin\Testimonial;
 use App\Models\Gallery;
@@ -84,7 +83,7 @@ public function contacts(Request $request){
         // ];
         $message = 'Name : '.$request->name. '<br>Email : '.$request->email. '<br>Phone : '.$request->phone. '<br>Message : '.$request->message;
 
-        Mail::to('jo@gmail.com')->send(new Contacts($message));
+        Mail::to('jo@gmail.com')->send(new Contact($message));
 
 
      return response()->json([
