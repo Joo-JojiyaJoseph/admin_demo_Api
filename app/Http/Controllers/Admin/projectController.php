@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class projectController extends Controller
 {
@@ -14,7 +16,9 @@ class projectController extends Controller
      */
     public function index()
     {
-        //
+        $project = project::Orderby('id', 'desc')->get();
+
+        return view('admin.web.project')->with('projects', $project );
     }
 
     /**
@@ -35,8 +39,26 @@ class projectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'required|mimes:jpg,jpeg,png'
+        ]);
+
+        $filename = time().'.'.$request->file('image')->extension();
+        $request->image->storeAs('uploads/project', $filename, 'public');
+        $filename = 'uploads/project/'.$filename;
+
+        project::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'image' => $filename,
+        ]);
+
+        return redirect(route('project.index'))->with('success', 'Added Successfully');
     }
+
+
 
     /**
      * Display the specified resource.
@@ -69,7 +91,30 @@ class projectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $project = project::find($id);
+
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $request->validate(['image' => 'mimes:jpg,jpeg,png']);
+            Storage::delete('/public/'.$project->image);
+            $filename = time().'.'.$request->file('image')->extension();
+            $request->image->storeAs('uploads/project', $filename, 'public');
+            $filename = 'uploads/project/'.$filename;
+        } else {
+            $filename = $project->image;
+        }
+
+        $project->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'image' => $filename,
+        ]);
+
+        return redirect(route('project.index'))->with('success', 'Updated Successfully');
     }
 
     /**
@@ -80,6 +125,11 @@ class projectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $project = project::find($id);
+
+        Storage::delete('/public/'.$project->image);
+        project::destroy($project->id);
+
+        return redirect(route('project.index'))->with('success', 'Deleted Successfully');
     }
 }

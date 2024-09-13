@@ -27,6 +27,7 @@ Route::middleware(['contact.headers'])->group(function () {
     Route::get('/gallery',[ViewController::class,'gallery']);
     Route::get('/testimonial',[ViewController::class,'apitestimonials']);
     Route::post('/contact',[ViewController::class,'contacts']);
+     Route::get('/project',[ViewController::class,'projects']);
 
 });
 

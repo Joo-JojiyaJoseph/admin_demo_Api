@@ -33,6 +33,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function(){
     Route::resource('slider', Admin\SliderController::class, ['names' => 'slider']);
     Route::resource('gallery', Admin\GalleryController::class, ['names' => 'gallery']);
     Route::resource('logo', Admin\LogoController::class, ['names' => 'logo']);
+    Route::resource('project', Admin\projectController::class, ['names' => 'project']);
     Route::get('/admin-home', [Admin\AdminHomeController::class, 'home'])->name('home.index');
   });
 
