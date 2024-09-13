@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\contact;
 use App\Models\Admin\Logo;
 use App\Models\Admin\project;
+use App\Models\Admin\Service;
 use App\Models\Admin\Testimonial;
 use App\Models\Gallery;
 
@@ -34,13 +35,31 @@ class ViewController extends Controller
              ]);
 
    }
+   public function service()
+   {
+    $services = Service::all();
+    return response()->json([
+                'status'=>'200',
+                'services'=>$services
+             ]);
+
+   }
 
    public function logo()
    {
     $logo = Logo::first();
     return response()->json([
                 'status'=>'200',
-                'logo'=>$logo
+                'logo'=>$logo,
+                'image_base_url' => url('storage/images/')
+             ]);
+   }
+
+   public function base()
+   {
+    return response()->json([
+                'status'=>'200',
+                'image_base_url' => url('storage/images/')
              ]);
    }
 

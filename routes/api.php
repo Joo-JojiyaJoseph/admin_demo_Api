@@ -22,12 +22,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::middleware(['contact.headers'])->group(function () {
     Route::get('/slider',[ViewController::class,'sliders']);
+    Route::get('/base',[ViewController::class,'base']);
     Route::get('/logo',[ViewController::class,'logo']);
     Route::get('/seo',[ViewController::class,'seo']);
     Route::get('/gallery',[ViewController::class,'gallery']);
     Route::get('/testimonial',[ViewController::class,'apitestimonials']);
     Route::post('/contact',[ViewController::class,'contacts']);
      Route::get('/project',[ViewController::class,'projects']);
+     Route::get('/service',[ViewController::class,'service']);
 
 });
 
