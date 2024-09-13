@@ -58,7 +58,7 @@ class ViewController extends Controller
    {
     return response()->json([
                 'status'=>'200',
-                'imageurl' => url('storage/images/')
+                'imageurl' => url('storage/')
              ]);
    }
 
