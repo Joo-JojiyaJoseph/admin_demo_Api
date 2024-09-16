@@ -29,6 +29,7 @@ Route::middleware(['contact.headers'])->group(function () {
     Route::get('/testimonial',[ViewController::class,'apitestimonials']);
     Route::post('/contact',[ViewController::class,'contacts']);
      Route::get('/project',[ViewController::class,'projects']);
+     Route::get('/projectids/{id}', [ViewController::class, 'projectids']);
      Route::get('/service',[ViewController::class,'service']);
 
 });

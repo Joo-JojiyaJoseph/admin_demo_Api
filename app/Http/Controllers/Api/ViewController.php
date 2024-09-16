@@ -26,15 +26,38 @@ class ViewController extends Controller
 
    }
 
-   public function projects()
+   public function projects($id="")
    {
+    if(!$id=="")
+    {
+        $projects = project::find($id);
+    }
+    else{
     $projects = project::all();
+    }
     return response()->json([
                 'status'=>'200',
                 'projects'=>$projects
              ]);
 
    }
+   public function projectids($id="")
+   {
+    if(!$id=="")
+    {
+        $projectids = project::find($id);
+    }
+    else{
+    $projectids = project::all();
+    }
+    return response()->json([
+                'status'=>'200',
+                'projectids'=>$projectids
+             ]);
+
+   }
+
+
    public function service()
    {
     $services = Service::all();
