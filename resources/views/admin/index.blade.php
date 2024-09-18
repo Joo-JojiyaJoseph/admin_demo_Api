@@ -8,7 +8,8 @@
     <meta name="author" content="{{ config('app.name') }}">
     <title>{{ config('app.name') }} - Admin</title>
     <link rel="stylesheet" href="{{ asset('admin_assets/css/bootstrap.min.css') }}">
-    <script src="https://cdn.tailwindcss.com"></script>
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('admin_assets/css/main.css') }}">
     <!-- favicon -->
     <link rel="shortcut icon" href="{{ asset('/storage/images/favicon.png') }}">
