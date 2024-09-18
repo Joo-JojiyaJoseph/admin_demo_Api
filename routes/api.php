@@ -31,6 +31,7 @@ Route::middleware(['contact.headers'])->group(function () {
      Route::get('/project',[ViewController::class,'projects']);
      Route::get('/projectids/{id}', [ViewController::class, 'projectids']);
      Route::get('/service',[ViewController::class,'service']);
+     Route::get('/clients',[ViewController::class,'clients']);
 
 });
 

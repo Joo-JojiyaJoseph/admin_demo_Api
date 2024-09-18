@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\contact;
+use App\Models\Admin\Client;
 use App\Models\Admin\Logo;
 use App\Models\Admin\project;
 use App\Models\Admin\Service;
@@ -22,6 +23,15 @@ class ViewController extends Controller
     return response()->json([
                 'status'=>'200',
                 'sliders'=>$sliders
+             ]);
+
+   }
+   public function clients()
+   {
+    $clients = Client::all();
+    return response()->json([
+                'status'=>'200',
+                'clients'=>$clients
              ]);
 
    }
