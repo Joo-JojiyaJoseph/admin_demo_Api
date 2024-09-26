@@ -32,6 +32,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function(){
     Route::resource('testimonial', Admin\TestimonialController::class, ['names' => 'testimonial']);
     Route::resource('slider', Admin\SliderController::class, ['names' => 'slider']);
     Route::resource('gallery', Admin\GalleryController::class, ['names' => 'gallery']);
+    Route::resource('brochure', Admin\BrochureController::class, ['names' => 'brochure']);
     Route::resource('logo', Admin\LogoController::class, ['names' => 'logo']);
     Route::resource('project', Admin\projectController::class, ['names' => 'project']);
     Route::resource('service', Admin\ServiceController::class, ['names' => 'service']);

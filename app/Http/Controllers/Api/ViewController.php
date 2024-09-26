@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\contact;
+use App\Models\Admin\Brochure;
 use App\Models\Admin\Client;
 use App\Models\Admin\Logo;
 use App\Models\Admin\project;
@@ -32,6 +33,16 @@ class ViewController extends Controller
     return response()->json([
                 'status'=>'200',
                 'clients'=>$clients
+             ]);
+
+   }
+
+   public function brochure()
+   {
+    $brochure = Brochure::first();
+    return response()->json([
+                'status'=>'200',
+                'brochure'=>$brochure
              ]);
 
    }
