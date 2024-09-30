@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Artisan;
 
 
 /*
@@ -18,6 +20,26 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/about', [HomeController::class, 'about'])->name('about');
 // Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 // Route::post('/contact', [HomeController::class, 'contactPost'])->name('contact');
+
+Route::get('/link', function() {
+    $fromFolder = storage_path("app/public");
+    $toFolder = $_SERVER['DOCUMENT_ROOT'].'AdminApi/storage';
+    if(!File::exists($toFolder)) {
+        symlink($fromFolder, $toFolder);
+        return redirect(route('index'));
+    }
+    return ('Storage folder already exist in public_html, delete Storage folder and refresh');
+});
+
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('config:cache');
+    Artisan::call('route:clear');
+
+    Artisan::call('config:cache');
+       Artisan::call('key:generate');
+       echo  $exitCode;
+    // return what you want
+});
 
 // Route::get('/admin', [Admin\AdminController::class, 'index'])->name('admin.login');
 Route::get('/', [Admin\AdminController::class, 'index'])->name('admin.login');
