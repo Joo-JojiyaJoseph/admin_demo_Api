@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::middleware(['contact.headers'])->group(function () {
+Route::middleware(['cors'])->group(function () {
     Route::get('/slider',[ViewController::class,'sliders']);
     Route::get('/baseimageurl',[ViewController::class,'baseimageurl']);
     Route::get('/logo',[ViewController::class,'logo']);
