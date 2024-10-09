@@ -57,6 +57,14 @@
                     </div>
                 </a>
             </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                <a href="{{ route('brochure.index') }}">
+                    <div class="info-stats2">
+                        <div class="info-icon danger"><i class="icon-layers2"></i></div>
+                        <div class="sale-num"><h3>Brochure</h3><p>Website Brochure</p></div>
+                    </div>
+                </a>
+            </div>
 
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
                 <a href="{{ route('gallery.index') }}">
@@ -93,6 +101,27 @@
                     </div>
                 </a>
             </div>
+
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                <a href="{{route('job.index')}}">
+                    <div class="info-stats2">
+                        <div class="info-icon danger"><i class="icon-layers2"></i></div>
+                        <div class="sale-num"><h3>Jobs</h3><p>Website Jobs</p></div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                <a href="">
+                    <div class="info-stats2">
+                        <div class="info-icon danger"><i class="icon-layers2"></i></div>
+                        <div class="sale-num"><h3>Applications</h3><p>Website Application</p></div>
+                    </div>
+                </a>
+            </div>
+
+
+
         </div>
     </div>
 

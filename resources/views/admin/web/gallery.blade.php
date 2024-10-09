@@ -12,7 +12,7 @@
             </div>
 
             <div class="col-xs-2 mb-2">
-                <a href="{{ route('home.index') }}" class="btn btn-primary">Back</a>
+                <a href="{{ route('dashboard', 'web') }}" class="btn btn-primary">Back</a>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add">
                     ADD NEW
                 </button>
