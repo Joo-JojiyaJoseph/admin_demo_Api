@@ -33,10 +33,12 @@ Route::middleware(['cors'])->group(function () {
      Route::get('/project',[ViewController::class,'projects']);
      Route::get('/projectids/{id}', [ViewController::class, 'projectids']);
      Route::get('/serviceids/{id}', [ViewController::class, 'serviceids']);
+     Route::get('/careerids/{id}', [ViewController::class, 'careerids']);
      Route::get('/service',[ViewController::class,'service']);
      Route::get('/clients',[ViewController::class,'clients']);
      Route::get('/brochure',[ViewController::class,'brochure']);
      Route::get('/job',[ViewController::class,'job']);
+     Route::post('/careerApply',[ViewController::class,'careerApply']);
 
 });
 
