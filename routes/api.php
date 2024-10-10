@@ -24,15 +24,19 @@ Route::middleware(['cors'])->group(function () {
     Route::get('/slider',[ViewController::class,'sliders']);
     Route::get('/baseimageurl',[ViewController::class,'baseimageurl']);
     Route::get('/logo',[ViewController::class,'logo']);
-    Route::get('/seo',[ViewController::class,'seo']);
+    // Route::get('/seo',[ViewController::class,'seo']);
+    Route::get('/seo/{page}', [ViewController::class, 'getSeoData']);
+
     Route::get('/gallery',[ViewController::class,'gallery']);
     Route::get('/testimonials',[ViewController::class,'apitestimonials']);
     Route::post('/contact',[ViewController::class,'contacts']);
      Route::get('/project',[ViewController::class,'projects']);
      Route::get('/projectids/{id}', [ViewController::class, 'projectids']);
+     Route::get('/serviceids/{id}', [ViewController::class, 'serviceids']);
      Route::get('/service',[ViewController::class,'service']);
      Route::get('/clients',[ViewController::class,'clients']);
      Route::get('/brochure',[ViewController::class,'brochure']);
+     Route::get('/job',[ViewController::class,'job']);
 
 });
 

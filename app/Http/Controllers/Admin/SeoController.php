@@ -11,7 +11,7 @@ class SeoController extends Controller
     public function __construct()
     {
         $pages = [
-            'home', 'about', 'contact',
+            'home', 'about', 'contact','gallery','service','career','project'
         ];
 
         if(Seo::count() == 0 ) {

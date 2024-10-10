@@ -10,8 +10,10 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\contact;
 use App\Models\Admin\Brochure;
 use App\Models\Admin\Client;
+use App\Models\Admin\Job;
 use App\Models\Admin\Logo;
 use App\Models\Admin\project;
+use App\Models\Admin\Seo;
 use App\Models\Admin\Service;
 use App\Models\Admin\Testimonial;
 use App\Models\Gallery;
@@ -47,6 +49,17 @@ class ViewController extends Controller
 
    }
 
+
+   public function job()
+   {
+    $job = Job::all();
+    return response()->json([
+                'status'=>'200',
+                'job'=>$job
+             ]);
+
+   }
+
    public function projects($id="")
    {
     if(!$id=="")
@@ -62,6 +75,7 @@ class ViewController extends Controller
              ]);
 
    }
+
    public function projectids($id="")
    {
     if(!$id=="")
@@ -77,11 +91,34 @@ class ViewController extends Controller
              ]);
 
    }
-
-
-   public function service()
+   public function serviceids($id="")
    {
-    $services = Service::all();
+    if(!$id=="")
+    {
+        $serviceids = Service::find($id);
+    }
+    else{
+    $serviceids = service::all();
+    }
+    return response()->json([
+                'status'=>'200',
+                'serviceids'=>$serviceids
+             ]);
+
+   }
+
+
+   public function service($id="")
+   {
+
+    if(!$id=="")
+    {
+        $services = Service::find($id);
+    }
+    else{
+        $services = Service::all();
+    }
+
     return response()->json([
                 'status'=>'200',
                 'services'=>$services
@@ -106,12 +143,24 @@ class ViewController extends Controller
              ]);
    }
 
-   public function seo()
-   {
-    return response()->json([
-                'status'=>'200',
-             ]);
-   }
+//    public function seo()
+//    {
+//     return response()->json([
+//                 'status'=>'200',
+//              ]);
+//    }
+
+public function getSeoData($page)
+{
+    $seo = Seo::where('page', $page)->first();
+    if ($seo) {
+        return response()->json([
+            'status'=>'200',
+            'seo'=>$seo
+         ]);
+    }
+}
+
 
 public function apitestimonials(){
     $testimonials=Testimonial::all();
