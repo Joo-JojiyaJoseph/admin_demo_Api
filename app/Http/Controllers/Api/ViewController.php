@@ -52,7 +52,7 @@ class ViewController extends Controller
 
    public function job()
    {
-    $job = Job::all();
+    $job = Job::where('visible',1)->get();
     return response()->json([
                 'status'=>'200',
                 'job'=>$job
