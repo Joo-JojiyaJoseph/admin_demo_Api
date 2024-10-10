@@ -203,11 +203,17 @@ public function gallery(){
 public function careerApply(Request $request)
 {
     // Validate form data
+    // $request->validate([
+    //     'name' => 'required|string|max:255',
+    //     'email' => 'required|email',
+    //     'phone' => 'required|string',
+    //     'resume' => 'required|mimes:pdf,doc,docx|max:2048',  // Validate file upload
+    // ]);
     $request->validate([
         'name' => 'required|string|max:255',
         'email' => 'required|email',
         'phone' => 'required|string',
-        'resume' => 'required|mimes:pdf,doc,docx|max:2048',  // Validate file upload
+        'resume' => 'required|mimes:pdf,doc,docx|max:2048',
     ]);
 
     // Initialize the resume path variable
@@ -223,7 +229,7 @@ public function careerApply(Request $request)
         'name' => $request->name,
         'email' => $request->email,
         'phone' => $request->phone,
-        'resume' => $resumePath,  // Store file path in database
+        'image' => $resumePath,  // Store file path in database
     ]);
 
     // Prepare the email data
@@ -233,7 +239,7 @@ public function careerApply(Request $request)
         'phone' => $request->phone,
         'resume' => $resumePath,  // Include resume path if needed
     ];
-dd($emailData);
+
     // Send the email with the application data
     Mail::to('jo@example.com')->send(new ApplicationMail($emailData, $resumePath));
 
