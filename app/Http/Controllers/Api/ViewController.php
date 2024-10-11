@@ -203,12 +203,7 @@ public function gallery(){
 public function careerApply(Request $request)
 {
     // Validate form data
-    // $request->validate([
-    //     'name' => 'required|string|max:255',
-    //     'email' => 'required|email',
-    //     'phone' => 'required|string',
-    //     'resume' => 'required|mimes:pdf,doc,docx|max:2048',  // Validate file upload
-    // ]);
+
     $request->validate([
         'name' => 'required|string|max:255',
         'email' => 'required|email',
@@ -229,6 +224,7 @@ public function careerApply(Request $request)
         'name' => $request->name,
         'email' => $request->email,
         'phone' => $request->phone,
+        'jobs' => $request->job,
         'image' => $resumePath,  // Store file path in database
     ]);
 
@@ -237,6 +233,7 @@ public function careerApply(Request $request)
         'name' => $request->name,
         'email' => $request->email,
         'phone' => $request->phone,
+        'jobs' => $request->job,
         'resume' => $resumePath,  // Include resume path if needed
     ];
 

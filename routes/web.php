@@ -60,8 +60,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function(){
     Route::resource('service', Admin\ServiceController::class, ['names' => 'service']);
     Route::resource('client', Admin\ClientController::class, ['names' => 'client']);
     Route::resource('job', Admin\JobController::class, ['names' => 'job']);
+    Route::resource('application', Admin\ApplicationController::class, ['names' => 'application']);
+
     Route::post('jobs/{id}/hide', [Admin\JobController::class, 'hide'])->name('job.hides');
-    
     Route::post('jobs/{id}/show', [Admin\JobController::class, 'showjob'])->name('job.showjob');
     Route::get('/admin-home', [Admin\AdminHomeController::class, 'home'])->name('home.index');
   });

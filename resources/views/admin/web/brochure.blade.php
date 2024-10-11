@@ -37,8 +37,10 @@
                                     <tr>
                                         <td>1</td>
                                         <td>
-                                            <img src="{{ asset('/storage/uploads/brochure/' . $brochure->image) }}"
-                                                style="width: 100px; height: 50px">
+                                            {{-- <img src="{{ asset('/storage/uploads/brochure/' . $brochure->image) }}"
+                                                style="width: 100px; height: 50px"> --}}
+                                                <iframe src="{{ asset('/storage/uploads/brochure/' . $brochure->image) }}" width="100%" height="600px"></iframe>
+
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-primary" data-toggle="modal"
