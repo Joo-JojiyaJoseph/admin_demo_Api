@@ -44,10 +44,16 @@
                                         <td>
                                          <iframe src="{{ asset('/storage/' . $application->image) }}" width="100%" height="600px"></iframe>
                                         </td>
+                                        <td>
+                                        <a class="delete_btn btn btn-danger btn-block" data-action="{{ $application->id }}"
+                                            message="Delete the Application">
+                                            Delete
+                                        </a>
                                         <form style="display: none" id="{{ $application->id }}" method="post"
                                             action="{{ route('application.destroy', $application) }}">
                                             @csrf @method('delete')
                                         </form>
+                                    </td>
                                         {{-- <td>
                                             <button type="button" class="btn btn-primary" data-toggle="modal"
                                                 data-target="#edit{{ $application->id }}">Edit</button>
