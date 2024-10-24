@@ -41,7 +41,7 @@ Route::get('/clear-cache', function() {
     // return what you want
 });
 
-// Route::get('/admin', [Admin\AdminController::class, 'index'])->name('admin.login');
+Route::get('/admin', [Admin\AdminController::class, 'index'])->name('admin.login');
 Route::get('/', [Admin\AdminController::class, 'index'])->name('admin.login');
 Route::post('/admin', [Admin\AdminController::class, 'login'])->name('admin.login');
 Route::get('/admin-logout', [Admin\AdminController::class, 'logout'])->name('admin.logout');
