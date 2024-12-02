@@ -39,7 +39,8 @@ Route::middleware(['cors'])->group(function () {
      Route::get('/brochure',[ViewController::class,'brochure']);
      Route::get('/job',[ViewController::class,'job']);
      Route::post('/careerApply',[ViewController::class,'careerApply']);
-
+     Route::get('/footer_certification',[ViewController::class,'footer_certification']);
+     Route::get('/director_message',[ViewController::class,'director_message']);
 });
 
 

@@ -62,6 +62,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function(){
     Route::resource('job', Admin\JobController::class, ['names' => 'job']);
     Route::resource('application', Admin\ApplicationController::class, ['names' => 'application']);
 
+    Route::resource('director_message', Admin\DirectorMessageController::class, ['names' => 'director_message']);
+    Route::resource('footer_certification', Admin\FootercertificationController::class, ['names' => 'footer_certification']);
+
     Route::post('jobs/{id}/hide', [Admin\JobController::class, 'hide'])->name('job.hides');
     Route::post('jobs/{id}/show', [Admin\JobController::class, 'showjob'])->name('job.showjob');
     Route::get('/admin-home', [Admin\AdminHomeController::class, 'home'])->name('home.index');

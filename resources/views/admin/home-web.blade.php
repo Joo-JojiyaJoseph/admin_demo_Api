@@ -121,6 +121,26 @@
             </div>
 
 
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                <a href="{{route('director_message.index')}}">
+                    <div class="info-stats2">
+                        <div class="info-icon danger"><i class="icon-layers2"></i></div>
+                        <div class="sale-num"><h3>Director's Message</h3><p>Message</p></div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                <a href="{{route('footer_certification.index')}}">
+                    <div class="info-stats2">
+                        <div class="info-icon danger"><i class="icon-layers2"></i></div>
+                        <div class="sale-num"><h3>Footer Certification</h3><p>Certification</p></div>
+                    </div>
+                </a>
+            </div>
+
+
 
         </div>
     </div>

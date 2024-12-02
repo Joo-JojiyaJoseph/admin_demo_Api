@@ -12,6 +12,8 @@ use App\Mail\contact;
 use App\Models\Admin\Application;
 use App\Models\Admin\Brochure;
 use App\Models\Admin\Client;
+use App\Models\Admin\Director_message;
+use App\Models\Admin\Footer_certification;
 use App\Models\Admin\Job;
 use App\Models\Admin\Logo;
 use App\Models\Admin\project;
@@ -245,9 +247,24 @@ public function careerApply(Request $request)
         'msg' => 'We will Get Back To You Soon.'
     ]);
 }
+public function footer_certification()
+{
+ $footer_certification = Footer_certification::get();
+ return response()->json([
+             'status'=>'200',
+             'footer_certification'=>$footer_certification
+          ]);
 
+}
+public function director_message()
+{
+ $director_message = Director_message::get();
+ return response()->json([
+             'status'=>'200',
+             'director_message'=>$director_message
+          ]);
 
-
+}
 
 public function contacts(Request $request){
     $validator=Validator::make($request->all(),[
